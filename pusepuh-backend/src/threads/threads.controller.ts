@@ -17,6 +17,11 @@ export class ThreadsController {
     return this.threadsService.findAll();
   }
 
+  @Get('stats')
+  getStats() {
+    return this.threadsService.getStats();
+  }
+
   @Get(':id')
   findOne(@Param('id') id: string) {
     return this.threadsService.findOne(+id);
@@ -31,4 +36,6 @@ export class ThreadsController {
   remove(@Param('id') id: string) {
     return this.threadsService.remove(+id);
   }
+
+  
 }

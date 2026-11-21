@@ -1,0 +1,20 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Thread {
+  id         Int      @id @default(autoincrement())
+  judul      String
+  author     String   @default("Anonim")
+  kategori   String
+  gambar     String   @default("image/opera.jpg")
+  deskripsi  String
+  likes      Int      @default(0)
+  isOriginal Boolean  @default(true)
+  createdAt  DateTime @default(now())
+}
